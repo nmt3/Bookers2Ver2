@@ -1,0 +1,36 @@
+<h2>User info</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <%= image_tag user.get_profile_image %>
+      </tr>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <%#= link_to "★", edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
+    <% if @user.id == current_user.id %>
+      <p><%= link_to "★", edit_user_path(@user), class: "btn btn-outline-secondary btn-block" %></p>
+    <% end %>
+  </div>
+  <h2>New Book</h2>
+  <form action="/books" accept-charset="UTF-8" method="post">
+  <div class="from-group">
+    <label for="book_title">Title</label>
+    <input class="form-control book_title" type="text" name="book[title]" id="book_title">
+  </div>
+  <div class="form-group">
+    <label for="book_opinion">Opinion</label>
+    <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
+  </div>
+  <div class="form-group">
+    <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
+  </div>
+  </form>
