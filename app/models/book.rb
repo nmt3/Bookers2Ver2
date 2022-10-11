@@ -10,5 +10,4 @@ class Book < ApplicationRecord
       profile_image
     end
 
-
 end

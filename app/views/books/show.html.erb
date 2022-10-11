@@ -2,17 +2,26 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'users/list', user: @user %>
+      <%= render 'users/list', user: @user, book: @book %>
     </div>
 
     <div class="col-md-8 offset-md-1">
         <h2>Book datail</h2>
-          <table class="table table-hover table-inverse">
-            <thead>
+          <table class="table">
+            <tbody>
               <tr>
-                <th colspan=3></th>
+                <th>
+                  <% link_to "s", user_path(@user) %>
+                </th>
+                <th><p>a</p></th>
+                <th><p>aa</p></th>
+                <th><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %></th>
+                <th>
+                  <% if @book.user == current_user %>
+                    <%= link_to "Destroy", book_path, method: :destroy, class: "btn btn-sm btn-danger" %></th>
+                  <% end %>
               </tr>
-            </thead>
+            </tbody>
           </table>
       </div>
   </div>
