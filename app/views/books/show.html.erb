@@ -11,15 +11,22 @@
             <tbody>
               <tr>
                 <th>
-                  <% link_to "s", user_path(@user) %>
+                  <%= image_tag @user.get_profile_image, size: "100×100" %>
                 </th>
-                <th><p>a</p></th>
-                <th><p>aa</p></th>
-                <th><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %></th>
                 <th>
-                  <% if @book.user == current_user %>
-                    <%= link_to "Destroy", book_path, method: :destroy, class: "btn btn-sm btn-danger" %></th>
+                  <%= link_to @books.title, book_path(@books) %>
+                </th>
+                <th>
+                  <%= @books.body %>
+                </th>
+                <th>
+                  <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-sm btn-success" %>
+                </th>
+                <th>
+                  <% if @books.user == current_user %>
+                    <%= link_to "Destroy", book_path(@books.id), method: :delete, class: "btn btn-sm btn-danger" %>
                   <% end %>
+                </th>
               </tr>
             </tbody>
           </table>

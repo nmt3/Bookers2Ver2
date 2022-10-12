@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @books = @user.books
     @book = Book.find(params[:id])
     @book = Book.new
-    @user = current_user
+    @users = current_user
   end
 
   def edit

@@ -18,9 +18,9 @@
         </thead>
         <tbody>
           <tr>
-            <td></td>
-            <td></td>
-            <td><%#= link_to "show", user_path %></td>
+            <td><%= @user.profile_image %></td>
+            <td><%= @user.name %></td>
+            <td><%= link_to "show", user_path(current_user) %></td>
           </tr>
         </tbody>
       </table>
