@@ -11,7 +11,8 @@
             <tbody>
               <tr>
                 <th>
-                  <%= image_tag @user.get_profile_image, size: "100×100" %>
+                  <%= image_tag @user.get_profile_image %><br>
+                  <%= link_to @user.name, user_path(@user) %>
                 </th>
                 <th>
                   <%= link_to @books.title, book_path(@books) %>
@@ -19,13 +20,13 @@
                 <th>
                   <%= @books.body %>
                 </th>
+                <% if @books.user == current_user %>
                 <th>
                   <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-sm btn-success" %>
                 </th>
                 <th>
-                  <% if @books.user == current_user %>
                     <%= link_to "Destroy", book_path(@books.id), method: :delete, class: "btn btn-sm btn-danger" %>
-                  <% end %>
+                <% end %>
                 </th>
               </tr>
             </tbody>

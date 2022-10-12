@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Bookers2Ver2</title>
+    <script src="https://kit.fontawesome.com/127dcb1b69.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -25,16 +26,16 @@
               <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
                 <li>
-                  <%= link_to "Home", user_path(current_user) %>
+                  <%= link_to "Home", user_path(current_user), class: "fa-solid fa-house-chimney" %>
                 </li>
                 <li>
-                  <%= link_to "Users", users_path %>
+                  <%= link_to "Users", users_path, class: "fa-solid fa-users" %>
                 </li>
                 <li>
-                  <%= link_to "Books", books_path %>
+                  <%= link_to "Books", books_path, class: "fa-solid fa-book-open" %>
                 </li>
                 <li>
-                  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "fa-solid fa-right-from-bracket" %>
                 </li>
                 <% else %>
                 <li>
