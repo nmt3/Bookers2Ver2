@@ -20,14 +20,14 @@
                 <th>
                   <%= @books.body %>
                 </th>
-                <% if @books.user == current_user %>
+                <% if @books.user_id == current_user.id %>
                 <th>
                   <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-sm btn-success" %>
                 </th>
                 <th>
-                    <%= link_to "Destroy", book_path(@books.id), method: :delete, class: "btn btn-sm btn-danger" %>
-                <% end %>
+                  <%= link_to "Destroy", book_path(@books.id), method: :delete, class: "btn btn-sm btn-danger" %>
                 </th>
+                <% end %>
               </tr>
             </tbody>
           </table>

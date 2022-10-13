@@ -16,16 +16,17 @@
   </table>
   <div class="row">
     <%#= link_to "★", edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" %>
-      <%= link_to "★", edit_user_path(user), class: "btn btn-outline-secondary btn-block" %>
+      <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fa-solid fa-users-gear"></i>
+      <% end %>
   </div>
   <h2>New Book</h2>
       <%#仮コード%>
     <%= form_with model: book do |f| %>
-    <h4>タイトル</h4>
+    <h4>Title</h4>
       <%= f.text_field :title %>
 
-    <h4>本文</h4>
-      <%= f.text_area :body %>
-
-    <%= f.submit '投稿' %>
+    <h4>Opinion</h4>
+      <%= f.text_area :body %><br>
+    <%= f.submit "Create Book", class: "btn btn-success" %>
     <% end %>

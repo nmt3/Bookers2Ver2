@@ -1,4 +1,3 @@
-<p id="notice"></p>
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
@@ -25,12 +24,12 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation %><br/>
+          <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
         <div class="actions">
-          <input type="submit" name="commit" value="Sign up" class="btn btn-sm btn-success" data-disable-with="user_registration_path" >
+          <%= f.submit "Sign up", class: "btn btn-sm btn-success" %>
         </div>
       <% end %>
 
