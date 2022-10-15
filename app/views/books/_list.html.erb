@@ -1,12 +1,3 @@
-<% if users.errors.any? %>
-  <%= users.errors.count %>件のエラーが発生しました
-  <ul>
-    <% users.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <h2>User info</h2>
   <table class="table">
     <tbody>
@@ -29,7 +20,6 @@
       <% end %>
   </div>
   <h2>New Book</h2>
-      <%#仮コード%>
     <%= form_with model: book do |f| %>
     <h4>Title</h4>
       <%= f.text_field :title %>

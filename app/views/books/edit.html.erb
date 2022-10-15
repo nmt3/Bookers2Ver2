@@ -1,24 +1,31 @@
-<p id="notice"></p>
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>Editing Book</h2>
-      <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
-      <div class="form-group">
-        <label for="inputName">Title</label><br>
-        <%= f.text_field :title, autofocus: true, id:"inputTitle", placeholder:"Title"%>
-      </div>
-      <div class="form-group">
-        <label for="user_introduction">Opinion</label><br>
-        <%= f.text_area :body, autofocus: true, placeholder: "body" %>
-      </div>
-      <div class="form-group">
-        <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update book">
-      </div>
-      <%= link_to "Show", book_path %>
-      /
-      <%= link_to "Back", books_path %>
-      <% end %>
+        <% if @book.errors.any? %>
+          <%= @book.errors.count %>error prohibited this obj from being saved:
+            <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+        <% end %>
+        <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
+        <div class="form-group">
+          <label for="inputName">Title</label><br>
+          <%= f.text_field :title, autofocus: true, id:"inputTitle"%>
+        </div>
+        <div class="form-group">
+          <label for="user_introduction">Opinion</label><br>
+          <%= f.text_area :body, autofocus: true %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Update Book", class: "btn btn-success" %>
+        </div>
+        <%= link_to "Show", book_path %>
+        /
+        <%= link_to "Back", books_path %>
+        <% end %>
     </div>
   </div>
 </div>
